@@ -1,12 +1,17 @@
 import React from 'react';
 import { Nav, Navbar, Container, NavDropdown }from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
+import logo from '../assets/logo.png';
 
 function Navigation() {
   return (
         <Navbar bg="light" expand="lg">
           <Container>
-            <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+            <LinkContainer to="/">
+            <Navbar.Brand>
+                <img src={logo} style={{ width: 100, height: 60 }} />
+            </Navbar.Brand>
+            </LinkContainer>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="ms-auto">
