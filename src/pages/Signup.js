@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Container, Col, Form, Row, Button } from 'react-bootstrap';
 import{ useSignupUserMutation } from '../services/appApi';
-import "./Signup.css";
 import { Link, useNavigate } from 'react-router-dom';
+import "./Signup.css";
 import profile from '../assets/profile.png';
 
 function Signup() {
@@ -40,7 +40,7 @@ function Signup() {
       const urlData = await res.json();
       setUploadingImg(false);
       return urlData.url
-    } catch(error) {
+    } catch (error) {
       setUploadingImg(false);
       console.log(error);
     }
@@ -57,7 +57,7 @@ function Signup() {
           console.log(data);
           navigate("/chat")
       }
-    })
+    });
   }
 
   return (
@@ -73,6 +73,7 @@ function Signup() {
           </label>
           <input type="file" id="image-upload" hidden accept="imafe/png, image/jpeg" onChange={validateImg} />
         </div>
+        {error && <p className="alert alert-danger">{error.data}</p>}
       <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Label>Name</Form.Label>
           <Form.Control type="text" placeholder="Your name" onChange={(e) => setName(e.target.value)} value={name} />
