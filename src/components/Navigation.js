@@ -59,13 +59,12 @@ function Navigation() {
                 <NavDropdown.Item href="#action/3.3">
                   Something
                 </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Separated link
-                </NavDropdown.Item>
+                
+                <NavDropdown.Item>
                 <Button variant="danger" onClick={handleLogout}>
                   Logout
                 </Button>
+                </NavDropdown.Item>
               </NavDropdown>
             )}
           </Nav>

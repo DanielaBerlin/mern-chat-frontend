@@ -9,19 +9,19 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  // const { socket } =useContext(AppContext);
-  const [loginUser, {isLoading, error }] = useLoginUserMutation()
+  // const { socket } = useContext(AppContext);
+  const [loginUser, { isLoading, error }] = useLoginUserMutation();
   function handleLogin(e) {
-    e.preventDefault();
-    // login logic
-    loginUser({email, password}).then(({data}) => {
-      if (data) {
-        //socket work
-        // socket.emit("new-user");
-        //navigate to the chat
-        navigate("/chat");
-      }
-    });
+      e.preventDefault();
+      // login logic
+      loginUser({ email, password }).then(({ data }) => {
+          if (data) {
+              // socket work
+              // socket.emit("new-user");
+              // navigate to the chat
+              navigate("/chat");
+          }
+      });
   }
 
   return (
@@ -29,7 +29,7 @@ function Login() {
       <Row>
         <Col md={5} className="login__bg">
         </Col>
-        <Col md={5} className="d-flex align-items-center justify-content-center flex-direction-column">
+        <Col md={7} className="d-flex align-items-center justify-content-center flex-direction-column">
         <Form style={{ width: '80%', maxWidth: 500 }} onSubmit={handleLogin}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
@@ -46,7 +46,7 @@ function Login() {
           <Button variant="primary" type="submit"> 
           {isLoading ? <Spinner animation="grow" /> : "Login"}
           </Button>
-          <div className='py-4'>
+          <div className="py-4">
             <p className="text-center">Don't have an account?
             <Link to="/signup">Signup</Link>
             </p>
