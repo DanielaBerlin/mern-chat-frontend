@@ -3,13 +3,13 @@ import { Container, Button, Form, Row, Col, Spinner } from 'react-bootstrap';
 import { useLoginUserMutation } from '../services/appApi';
 import "./Login.css";
 import { Link, useNavigate } from 'react-router-dom';
-// import { AppContext } from "../context/AppContext";
+import { AppContext } from "../context/appContext";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  // const { socket } = useContext(AppContext);
+  const { socket } = useContext(AppContext);
   const [loginUser, { isLoading, error }] = useLoginUserMutation();
  
   function handleLogin(e) {
@@ -18,7 +18,7 @@ function Login() {
       loginUser({ email, password }).then(({ data }) => {
           if (data) {
               // socket work
-              // socket.emit("new-user");
+              socket.emit("new-user");
               // navigate to the chat
               navigate("/chat");
           }
