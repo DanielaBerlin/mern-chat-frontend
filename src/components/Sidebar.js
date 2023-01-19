@@ -19,9 +19,9 @@ function Sidebar() {
 
   useEffect(() => {
     if (user) {
-      setCurrentRoom('general');
+      setCurrentRoom('Berlin');
       getRooms();
-      socket.emit('join-room', 'general');
+      socket.emit('join-room', 'Berlin');
       socket.emit('new-user');
     }
   }, []);
@@ -31,7 +31,7 @@ function Sidebar() {
   });
 
   function getRooms() {
-    fetch('http://:localhost:5001/rooms')
+    fetch('http://localhost:5001/rooms')
       .then((res) => res.json())
       .then((data) => setRooms(data));
   }
