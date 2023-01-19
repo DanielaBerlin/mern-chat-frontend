@@ -49,11 +49,13 @@ function Sidebar() {
         ))}
       </ListGroup>
       <h2>🧞‍♀️ Members 🧚🏽</h2>
+      <ListGroup>
       {members.map((member) => (
         <ListGroup.Item key={member.id} style={{ cursor: 'pointer' }}>
           {member.name}
         </ListGroup.Item>
       ))}
+      </ListGroup>
     </>
   );
 }
