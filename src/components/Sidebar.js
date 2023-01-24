@@ -50,6 +50,11 @@ function Sidebar() {
       .then((data) => setRooms(data));
   }
 
+  function handlePrivateMemberMsg(member){
+    setPrivateMemberMsg(member);
+
+  }
+
   if (!user) {
     return <></>;
   }
@@ -66,7 +71,7 @@ function Sidebar() {
       <h2>🧞‍♀️ Members 🧚🏽</h2>
       <ListGroup>
       {members.map((member) => (
-        <ListGroup.Item key={member.id} style={{ cursor: 'pointer' }}>
+        <ListGroup.Item key={member.id} style={{ cursor: 'pointer' }} active={privateMemberMsg?._id == member?._id} onClick={() => handlePrivateMemberMsg(member)} disabled={member._id === user._id}>
           {member.name}
         </ListGroup.Item>
       ))}
