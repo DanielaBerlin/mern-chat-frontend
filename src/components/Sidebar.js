@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { ListGroup } from 'react-bootstrap';
+import { ListGroup, Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppContext } from '../context/appContext';
 import { addNotifications, resetNotifications } from "../features/userSlice";
@@ -89,8 +89,13 @@ function Sidebar() {
       <ListGroup>
       {members.map((member) => (
         <ListGroup.Item key={member.id} style={{ cursor: 'pointer' }} active={privateMemberMsg?._id == member?._id} onClick={() => handlePrivateMemberMsg(member)} disabled={member._id === user._id}>
-          {member.name}
-        </ListGroup.Item>
+<Row>
+  <Col xs={2} className="member-status">
+    <img src={member.picture} className="member-status-img" />
+    {member.status == "online" ? <i className='fas fa-circle sidebar-online-status'></i> : <i className="fas fa-circle sidebar-offline-status"></i>}
+    </Col>
+    </Row>        
+</ListGroup.Item>
       ))}
       </ListGroup>
     </>
