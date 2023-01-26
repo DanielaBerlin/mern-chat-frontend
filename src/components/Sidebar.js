@@ -3,6 +3,8 @@ import { ListGroup, Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppContext } from '../context/appContext';
 import { addNotifications, resetNotifications } from "../features/userSlice";
+import './Sidebar.css';
+
 function Sidebar() {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch()
@@ -93,6 +95,11 @@ function Sidebar() {
   <Col xs={2} className="member-status">
     <img src={member.picture} className="member-status-img" />
     {member.status == "online" ? <i className='fas fa-circle sidebar-online-status'></i> : <i className="fas fa-circle sidebar-offline-status"></i>}
+    </Col>
+    <Col xs={9}>
+      {member.name}
+      {member._id === user?._id && " (You)"}
+      {member.status == "offline" && " (Offline)"}
     </Col>
     </Row>        
 </ListGroup.Item>
