@@ -26,3 +26,29 @@
     bottom: 0;
     left: 12px;
 }
+
+.incoming-message .message-inner {
+    background-color: rgb(172, 172, 246);
+}
+
+.incoming-message {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+}
+
+.message-timestamp-left {
+    font-size: 0.85em;
+    font-weight: 300;
+    margin-top: 10px;
+}
+
+.message-sender {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.message-date-indicator {
+    width: 150px;
+    margin: 0 auto;
+}
